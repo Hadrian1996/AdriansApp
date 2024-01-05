@@ -1,0 +1,64 @@
+﻿@page
+@using AdriansApp.Models
+@model AdriansApp.Pages.PersonenModel
+@{
+
+    <h1>Personen</h1>
+
+    <form method="post">
+        <p>ID:</p>
+        <input type="number" name="id" />
+        <br />
+        <p>NAME:</p>
+        <input type="text" name="name" />
+        <br />
+        <p>ADDRESS</p>
+        <input type="text" name="address" />
+        <br />
+        <p>AGE:</p>
+        <input type="number" name="age" />
+        <br />
+        <button type="submit">Add Person to DB</button>
+    </form>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Age</th>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (Person person in Model.PersonList)
+            {
+                <tr>
+
+                    <td>
+                        @person.Id
+                    </td>
+
+                    <td>
+                        @person.Name
+                    </td>
+
+                    <td>
+                        @person.Address
+                    </td>
+
+                    <td>
+                        @person.Age
+                    </td>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+}
